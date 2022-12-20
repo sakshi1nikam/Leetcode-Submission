@@ -223,3 +223,40 @@ public:
 };
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Keys and Rooms :-
+
+Solutions:-
+
+class Solution {
+
+    int totalvisit;
+    public boolean canVisitAllRooms(List<List<Integer>> rooms) {
+
+        int n = rooms.size();
+        boolean [] visited = new boolean[n];
+
+        dfs(rooms, visited , 0);
+
+        return totalvisit==n;
+    }
+
+
+        public void dfs(List<List<Integer>> rooms , boolean [] visited , int start)
+        {
+             visited[start]=true;
+             totalvisit++;
+
+             for(int nei: rooms.get(start))
+             {
+                 if(!visited[nei])
+                 {
+                     dfs(rooms, visited,nei);
+                 }
+             }
+
+
+        }
+
+        
+    }
+    --------------------------------------------------------------------------------------------------------------------------------------------------------------------
