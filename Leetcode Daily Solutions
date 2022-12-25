@@ -341,3 +341,32 @@ public:
     
 };
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Largets Element In array:-
+Solution:-
+
+
+//User function Template for Java
+
+class Solution {
+    int print2largest(int arr[], int n) {
+        // code here
+        int max=Arrays.stream(arr).max().getAsInt();
+        int diff=max;int ans=0,j=0;
+        for(int i:arr)
+        {
+            if(i!=max)
+            {
+               if(diff>(max-i))
+               {
+                   ans=i;
+                   diff=max-i;
+               }
+               if(max+diff==0) return -1;
+            }
+            if(max==i) j++;
+        }
+        if(j==arr.length) return -1;
+        return ans;
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
