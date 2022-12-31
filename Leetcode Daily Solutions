@@ -453,3 +453,69 @@ class Solution {
     }
 }
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Max Consecutive Ones:-
+Solution:-
+
+class Solution {
+    public int findMaxConsecutiveOnes(int[] nums) {
+        int j=0,max=0;
+        for(int i:nums)
+        {
+            if(i==1) j++;
+            else j=0;
+            if(max<j) max=j;
+        }
+        return max;
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Maximize Number of 1's
+
+Solution:-
+
+
+
+// User function Template for Java
+
+class Solve {
+    // m is maximum of number zeroes allowed to flip
+    int findZeroes(int arr[], int n, int m) {
+        
+        int WR=0,WL=0;
+        int bestWindow=0;
+        int zerocount=0;
+        
+        while(WR<n)
+        {
+            if(zerocount<=m)
+            {
+                if(arr[WR]==0)
+                {
+                    zerocount++;
+                }
+                WR++;
+            }
+            
+            if(zerocount>m)
+            {
+                if(arr[WL]==0)
+                {
+                    zerocount--;
+                }
+                WL++;
+            }
+            
+            if((WR-WL> bestWindow) && (zerocount<=m))
+            {
+                bestWindow=WR-WL;
+            }
+        
+        }
+        return bestWindow;
+        
+}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
