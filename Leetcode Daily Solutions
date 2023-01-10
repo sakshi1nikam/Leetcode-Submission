@@ -639,3 +639,46 @@ class Solution {
     }
 }
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Rearrange the positive and negative numbers in array:-
+Solution:-
+
+class Solution
+{
+    void rearrange(int arr[],int n)
+    {
+        ArrayList <Integer> pos = new ArrayList <>();
+        ArrayList <Integer> neg = new ArrayList <>();
+        for(int i:arr)
+        {
+            if(i>=0)
+            {
+                pos.add(i);
+            }
+            else
+            {
+                neg.add(i);
+            }
+        }
+        ArrayList <Integer> ans = new ArrayList <> ();
+        int i=0 ; int j=0;
+        while(i<pos.size() || j<neg.size())
+        {
+            if(i<pos.size())
+            {
+                ans.add(pos.get(i));
+                i++;
+            }
+            if(j<neg.size())
+            {
+                ans.add(neg.get(j));
+                j++;
+            }
+        }
+        for(int k=0;k<ans.size();k++)
+        {
+            arr[k]=ans.get(k);
+        }
+        }
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
