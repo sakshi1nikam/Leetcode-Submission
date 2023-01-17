@@ -723,3 +723,46 @@ public:
     }
 };
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                     Difference between sum of element and sum of digits :-
+Solution:-
+class Solution {
+public:
+     
+    int differenceOfSum(vector<int>& nums) {
+        
+        int ele_sum=0 , dig_sum=0;
+        for(int i:nums)
+        {
+            ele_sum+=i;
+            while(i>0)
+            {
+               dig_sum += (i%10);
+               i/=10;
+            }
+         
+         }
+         
+         
+         return (ele_sum - dig_sum);
+    }
+};
+
+java:-
+class Solution {
+    public int differenceOfSum(int[] nums) {
+        int ele_sum=0,dig_sum=0;
+        for(int i:nums)
+        {
+            ele_sum+=i;
+            while(i>0 || (i%10)>0)
+            {
+                dig_sum+=(i%10);
+                i/=10;
+            }
+        
+        }
+        return (ele_sum - dig_sum);
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
