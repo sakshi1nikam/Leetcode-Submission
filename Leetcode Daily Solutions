@@ -1386,4 +1386,46 @@ class Solution {
     }
 }
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3 subset sum:-
 
+class Solution {
+    public int threeSumClosest(int[] nums, int target) {
+       
+        Arrays.sort(nums);
+        int n = nums.length;
+        int diff = Integer.MAX_VALUE;
+        int closest_sum=nums[0]+nums[1]+nums[2];
+
+        for(int i=0;i<n-2;i++)
+        {
+            int l = i+1;
+            int r = n-1;
+            while(l<r)
+            {
+                int currsum = nums[i]+nums[l]+nums[r];
+                int kk = (currsum-target);
+                if(currsum == target)
+                {
+                    return target;
+                }
+
+                if(currsum<target)
+                {
+                    l++;
+                }
+                
+                else
+                {
+                    r--;
+                }
+
+                if (Math.abs(currsum - target) < Math.abs(closest_sum - target)) { // update closest sum
+                    closest_sum = currsum;
+                }
+            }
+        }
+
+        return closest_sum;
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
